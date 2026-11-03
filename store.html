@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Buy MudVault</title>
+  <meta name="description" content="Order MudVault, the cleat bag with a built-in stud scraper and pull-out mud tray. Team edition available.">
+  <meta name="theme-color" content="#f2f2ee">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/store.css">
+</head>
+<body class="store">
+  <header class="nav nav-light">
+    <div class="wrap nav-inner">
+      <a class="wordmark" href="/" aria-label="MudVault home">Mud<span>Vault</span></a>
+      <ul class="nav-links">
+        <li><a href="/#how">How it works</a></li>
+        <li><a href="/#details">Details</a></li>
+        <li><a href="/#clubs">Clubs</a></li>
+        <li><a href="/#specs">Specs</a></li>
+      </ul>
+      <button class="bag-btn" type="button" data-open-bag aria-controls="bag">Bag <span class="bag-count" data-bag-count>0</span></button>
+    </div>
+  </header>
+
+  <main class="wrap store-main" id="main">
+    <div class="store-head">
+      <h1 class="display">Buy MudVault</h1>
+      <p>Pick your edition and odor pods. This is a demo store for our class pitch, so nothing gets charged.</p>
+    </div>
+
+    <div class="store-grid">
+      <section class="gallery" aria-label="Product photos">
+        <div class="gallery-main">
+          <img id="galleryMain" src="/assets/img/hero.webp" alt="MudVault cleat bag, front view">
+          <span class="id-tag" id="idTag" hidden></span>
+        </div>
+        <div class="gallery-thumbs" role="list">
+          <button type="button" class="is-active" data-src="/assets/img/hero.webp" data-alt="MudVault cleat bag, front view" role="listitem"><img src="/assets/img/hero-960.webp" alt="Front view"></button>
+          <button type="button" data-src="/assets/img/field.webp" data-alt="MudVault on the grass next to muddy cleats" role="listitem"><img src="/assets/img/field-960.webp" alt="On the field"></button>
+          <button type="button" data-src="/assets/img/exploded.webp" data-alt="MudVault opened up to show the cleat compartments and tray" role="listitem"><img src="/assets/img/exploded-960.webp" alt="Opened up"></button>
+          <button type="button" data-src="/assets/img/tray.webp" data-alt="Sliding the mud tray out of MudVault" role="listitem"><img src="/assets/img/tray-960.webp" alt="Mud tray"></button>
+        </div>
+      </section>
+
+      <form class="config" id="config" novalidate>
+        <fieldset>
+          <legend>Edition</legend>
+          <label class="choice">
+            <input type="radio" name="edition" value="standard" checked>
+            <span class="choice-body"><b>MudVault</b><span>One bag with 2 charcoal pods</span></span>
+            <span class="choice-price">$34.99</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="edition" value="team">
+            <span class="choice-body"><b>Team edition</b><span>Your club crest on the front. 12 bag minimum.</span></span>
+            <span class="choice-price">$27 <small>per bag</small></span>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Size</legend>
+          <label class="choice">
+            <input type="radio" name="size" value="adult" checked>
+            <span class="choice-body"><b>Adult</b><span>Fits cleats up to men's size 13</span></span>
+          </label>
+          <label class="choice is-disabled">
+            <input type="radio" name="size" value="youth" disabled>
+            <span class="choice-body"><b>Youth</b><span>Coming in a later batch</span></span>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Odor pods</legend>
+          <label class="choice">
+            <input type="radio" name="pods" value="none" checked>
+            <span class="choice-body"><b>Just the 2 included pods</b><span>They last about 3 months</span></span>
+            <span class="choice-price">Included</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="pods" value="refill">
+            <span class="choice-body"><b>Add a refill 2-pack</b><span>One extra set for later</span></span>
+            <span class="choice-price">+$7.99</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="pods" value="subscribe">
+            <span class="choice-body"><b>Refill subscription</b><span>New pods every 3 months. First refill ships in 3 months.</span></span>
+            <span class="choice-price">$6.99 <small>/ 3 mo</small></span>
+          </label>
+        </fieldset>
+
+        <fieldset data-for="standard">
+          <legend>Personalize</legend>
+          <label class="field">
+            <span>Name for the ID window <small>(optional)</small></span>
+            <input type="text" name="idname" maxlength="14" autocomplete="off" placeholder="e.g. RIVERA 9">
+          </label>
+          <div class="qty">
+            <span id="qtyLabel">How many bags</span>
+            <div class="stepper" role="group" aria-labelledby="qtyLabel">
+              <button type="button" data-step="-1" aria-label="One fewer bag">−</button>
+              <output name="qty" aria-live="polite">1</output>
+              <button type="button" data-step="1" aria-label="One more bag">+</button>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset data-for="team" hidden>
+          <legend>Team details</legend>
+          <label class="field">
+            <span>Club name</span>
+            <input type="text" name="club" maxlength="40" autocomplete="organization" placeholder="e.g. Lakemont City FC">
+          </label>
+          <label class="field">
+            <span>Crest thread color</span>
+            <select name="thread">
+              <option>Volt green</option>
+              <option>White</option>
+              <option>Gold</option>
+              <option>Red</option>
+              <option>Royal blue</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Number of bags <small>(12 or more)</small></span>
+            <input type="number" name="teamqty" min="12" max="500" step="1" value="12" inputmode="numeric">
+          </label>
+          <p class="field-error" id="teamError" role="alert" hidden></p>
+        </fieldset>
+
+        <div class="summary" aria-live="polite">
+          <div class="summary-line"><span id="sumLabel">MudVault x 1</span><span id="sumBags">$34.99</span></div>
+          <div class="summary-line" id="sumPodsRow" hidden><span id="sumPodsLabel">Refill 2-pack</span><span id="sumPods">$7.99</span></div>
+          <div class="summary-total"><span>Total</span><span id="sumTotal">$34.99</span></div>
+          <button class="btn btn-ink add-btn" type="submit">Add to bag</button>
+          <p class="demo-note">Demo store for a class project. No payment details are collected.</p>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <aside class="bag" id="bag" aria-label="Your bag" aria-hidden="true" inert>
+    <div class="bag-panel">
+      <div class="bag-head">
+        <h2>Your bag</h2>
+        <button type="button" class="link-btn" data-close-bag>Close</button>
+      </div>
+      <ul class="bag-items" data-bag-items></ul>
+      <p class="bag-empty" data-bag-empty>Your bag is empty. Pick an edition to get started.</p>
+      <div class="bag-foot" data-bag-foot hidden>
+        <div class="summary-total"><span>Subtotal</span><span data-bag-subtotal>$0.00</span></div>
+        <button class="btn btn-ink add-btn" type="button" data-checkout>Check out</button>
+      </div>
+    </div>
+  </aside>
+  <div class="scrim" data-close-bag hidden></div>
+
+  <dialog class="checkout" id="checkout" aria-labelledby="checkoutTitle">
+    <div class="checkout-review" data-review>
+      <h2 id="checkoutTitle">Review your order</h2>
+      <ul class="bag-items" data-review-items></ul>
+      <div class="summary-line"><span>Subtotal</span><span data-review-subtotal></span></div>
+      <div class="summary-line"><span>Estimated Texas sales tax (8.25%)</span><span data-review-tax></span></div>
+      <div class="summary-total"><span>Total</span><span data-review-total></span></div>
+      <p class="demo-note">This checkout is a demo for our Shark Tank class pitch. Placing the order won't charge anything or ship anything.</p>
+      <div class="checkout-actions">
+        <button class="btn btn-ink" type="button" data-place>Place demo order</button>
+        <button class="link-btn" type="button" data-close-checkout>Back to bag</button>
+      </div>
+    </div>
+    <div class="checkout-done" data-done hidden>
+      <div class="done-mark" aria-hidden="true">✓</div>
+      <h2>Demo order placed</h2>
+      <p>Order <b data-order-number></b>. Thanks for trying the MudVault store.</p>
+      <p class="demo-note">No payment was taken and nothing will ship. MudVault is a student business concept.</p>
+      <div class="checkout-actions">
+        <a class="btn btn-ink" href="/">Back to MudVault</a>
+        <button class="link-btn" type="button" data-close-checkout>Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="footer footer-light">
+    <div class="wrap">
+      <p class="disclaimer">MudVault is a student business concept made for a class Shark Tank project. The clubs and partners shown are fictional, the photos and film were made with AI, and this store is a demo that does not take payment.</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/store.js" defer></script>
+</body>
+</html>
